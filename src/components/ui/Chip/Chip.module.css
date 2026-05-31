@@ -1,0 +1,12 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e7ff; /* light indigo */
+  color: var(--primary-color);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  font-family: var(--font-main);
+}

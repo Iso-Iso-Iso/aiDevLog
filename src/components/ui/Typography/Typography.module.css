@@ -1,0 +1,16 @@
+.title {
+  display: block;
+  font-family: var(--font-main);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+.paragraph {
+  display: block;
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  color: var(--text-color-muted);
+  line-height: 1.6;
+}

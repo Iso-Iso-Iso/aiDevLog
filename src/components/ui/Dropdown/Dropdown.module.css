@@ -1,0 +1,80 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  color: var(--text-color-muted);
+  font-weight: 500;
+  font-family: var(--font-main);
+}
+
+/* react-select styling via global targeting */
+.select :global(.react-select__control) {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  min-height: 42px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.select :global(.react-select__control--is-focused) {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+  outline: none;
+}
+
+.select :global(.react-select__control):hover {
+  border-color: var(--primary-color);
+}
+
+.select :global(.react-select__menu) {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  z-index: 10;
+  background-color: var(--surface-color);
+  margin-top: 4px;
+}
+
+.select :global(.react-select__option) {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  cursor: pointer;
+  background-color: transparent;
+  padding: 8px 12px;
+}
+
+.select :global(.react-select__option--is-focused) {
+  background-color: var(--background-color);
+}
+
+.select :global(.react-select__option--is-selected) {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+.select :global(.react-select__option:active) {
+  background-color: var(--primary-color-hover);
+}
+
+.select :global(.react-select__single-value) {
+  color: var(--text-color);
+}
+
+.select :global(.react-select__placeholder) {
+  color: var(--text-color-muted);
+}
+
+.select :global(.react-select__indicator-separator) {
+  display: none;
+}
