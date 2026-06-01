@@ -17,6 +17,7 @@ CRITICAL DECOMPOSITION RULES:
 2. DO NOT create monolithic tasks (e.g., a single "Frontend implementation" for an entire website). If the request is complex, split it into smaller, modular features. For example, separate tasks for "Header Component", "Authentication Form", "Routing Setup", etc.
 3. Keep descriptions highly detailed and actionable.
 4. Assign appropriate priorities (low, medium, high) by evaluating Size, Importance, and Risk Factor. Tasks with large scope, critical importance, or high technical risk (especially foundational or blocking tasks) must be 'high' priority. Small, low-risk, or cosmetic tasks should be 'low' priority.
+5. IMPORTANT: All generated tasks, descriptions, and outputs MUST be entirely in English.
 
 You MUST call the 'createTasks' tool exactly ONCE, providing the full array of specialized, granular tasks you identified.`;
 

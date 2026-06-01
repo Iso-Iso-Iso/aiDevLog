@@ -21,7 +21,8 @@ const structuredLlm = llm.withStructuredOutput(planSchema, { name: "DailyPlan", 
 
 const systemPrompt = `You are an expert Agile Scrum Master.
 Your goal is to review a list of tasks that are ready for development and select a realistic, balanced set of tasks to form a daily plan.
-For each selected task, provide a time estimate and a brief reason why it was prioritized.`;
+For each selected task, provide a time estimate and a brief reason why it was prioritized.
+IMPORTANT: All output MUST be entirely in English.`;
 
 const taskFilterAgent = async (tasks) => {
   const msgs = [

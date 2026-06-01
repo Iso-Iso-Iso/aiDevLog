@@ -25,7 +25,8 @@ const structuredLlm = llm.withStructuredOutput(ValidationSchema, {
 
 const systemPrompt = `You are a strict input validator for an AI task management system.
 Determine if the user's input is a valid request for task creation or decomposition.
-Reject conversational greetings, nonsense, or questions completely unrelated to software tasks.`;
+Reject conversational greetings, nonsense, or questions completely unrelated to software tasks.
+IMPORTANT: You MUST respond entirely in English.`;
 
 const validationAgent = async (prompt) => {
   const response = await structuredLlm.invoke([

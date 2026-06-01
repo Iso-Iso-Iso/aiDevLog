@@ -14,7 +14,8 @@ const helperSchema = z.object({
 const structuredLlm = llm.withStructuredOutput(helperSchema, { name: "HelperAnalysis", strict: true });
 
 const systemPrompt = `You are a Senior Engineering Manager.
-Review the proposed daily plan of tasks. Provide brief, actionable recommendations on what to focus on and analyze any potential bottlenecks or risks in the chosen plan.`;
+Review the proposed daily plan of tasks. Provide brief, actionable recommendations on what to focus on and analyze any potential bottlenecks or risks in the chosen plan.
+IMPORTANT: All recommendations and analysis MUST be entirely in English.`;
 
 const taskHelperAgent = async (plan, allTasks) => {
   const msgs = [
