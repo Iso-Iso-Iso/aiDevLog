@@ -2,11 +2,34 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #e0e7ff; /* light indigo */
-  color: var(--primary-color);
   padding: 4px 12px;
   border-radius: 9999px;
   font-size: var(--font-size-sm);
   font-weight: 500;
   font-family: var(--font-main);
+}
+
+.default {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.info {
+  background-color: #e0e7ff;
+  color: var(--primary-color);
+}
+
+.success {
+  background-color: #d1fae5;
+  color: var(--secondary-color);
+}
+
+.warning {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.danger {
+  background-color: #fee2e2;
+  color: #dc2626;
 }

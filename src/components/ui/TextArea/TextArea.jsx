@@ -1,3 +1,4 @@
+import { useController } from "react-hook-form";
 import styles from './TextArea.module.css';
 
 export const TextArea = ({ label, value, onChange, placeholder, rows = 4 }) => {
@@ -12,5 +13,21 @@ export const TextArea = ({ label, value, onChange, placeholder, rows = 4 }) => {
         rows={rows}
       />
     </div>
+  );
+};
+
+export const FormTextArea = ({ control, name, label, placeholder, rows }) => {
+  const {
+    field: { value, onChange },
+  } = useController({ control, name });
+
+  return (
+    <TextArea
+      label={label}
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      rows={rows}
+    />
   );
 };

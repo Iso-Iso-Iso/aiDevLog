@@ -7,6 +7,8 @@ import {
   MdAddCircle,
   MdDelete,
   MdPerson,
+  MdArrowForwardIos,
+  MdClose,
 } from "react-icons/md";
 
 const iconNames = {
@@ -17,6 +19,8 @@ const iconNames = {
   addCircle: MdAddCircle,
   delete: MdDelete,
   person: MdPerson,
+  arrowForward: MdArrowForwardIos,
+  close: MdClose,
 };
 
 export const Icon = ({ size = 20, name, onClick, className }) => {

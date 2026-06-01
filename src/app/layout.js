@@ -1,6 +1,7 @@
 import { Roboto } from "next/font/google";
 import "@/styles/main.css";
 import ClientRootProvide from "./components/ClientRootProvide/ClientRootProvide";
+import { ModalProvider } from "./components/ModalProvider/ModalProvider";
 
 const roboto = Roboto({
   variable: "--font-main",
@@ -16,7 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={roboto.variable}>
       <body>
-        <ClientRootProvide>{children}</ClientRootProvide>
+        <ClientRootProvide>
+          <ModalProvider>{children}</ModalProvider>{" "}
+        </ClientRootProvide>
       </body>
     </html>
   );

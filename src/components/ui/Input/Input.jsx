@@ -1,3 +1,4 @@
+import { useController } from "react-hook-form";
 import styles from './Input.module.css';
 
 export const Input = ({ label, value, onChange, placeholder, type = 'text' }) => {
@@ -14,3 +15,20 @@ export const Input = ({ label, value, onChange, placeholder, type = 'text' }) =>
     </div>
   );
 };
+
+export const FormInput = ({ control, name, label, type, placeholder }) => {
+  const {
+    field: { value, onChange },
+  } = useController({ control, name });
+
+  return (
+    <Input
+      label={label}
+      value={value}
+      onChange={onChange}
+      type={type}
+      placeholder={placeholder}
+    />
+  );
+};
+
