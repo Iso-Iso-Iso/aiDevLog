@@ -20,7 +20,10 @@ export const Header = () => {
         <Button variant="outlined" onClick={() => setActiveModal("manageTask")}>
           Create task
         </Button>
-        <Button variant="filled" onClick={() => {}}>
+        <Button
+          variant="filled"
+          onClick={() => setActiveModal("decomposeTask")}
+        >
           AI Task
         </Button>
       </div>

@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Developer Log Dashboard
 
-## Getting Started
+Цей проєкт — це високопродуктивний дашборд для розробників, який інтегрує штучний інтелект (ШІ) для автоматизації рутинних процесів (декомпозиція завдань, пріоритезація тощо). Проєкт створено за допомогою Next.js.
 
-First, run the development server:
+## Архітектурні рішення
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Чому ми обрали LowDB?
+Для цього проєкту в якості основної бази даних було обрано **LowDB** (локальна JSON-база даних). 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Переваги (чому обрали):**
+- Вона неймовірно проста у налаштуванні та ідеально підходить для тестових завдань або Proof of Concept (PoC).
+- Не вимагає розгортання окремого сервера бази даних (PostgreSQL/MySQL), що дозволяє миттєво запустити проєкт на будь-якій машині без додаткової інфраструктури.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Недоліки та компроміси:**
+- LowDB не має суворої схеми даних з коробки (як, наприклад, Prisma або TypeORM).
+- Відсутність схеми означає неможливість автоматичної валідації структури даних на рівні БД. Щоб вирішити цю проблему, нам довелося самостійно впроваджувати суворий шар валідації за допомогою бібліотеки **Zod** та створювати спеціальні обгортки (наприклад, `withValidation`), щоб гарантувати цілісність даних перед кожним записом у файл.
+- Вона не підходить для високонарвантажених production-середовищ через відсутність безпечного конкурентного доступу (concurrency) при записі даних.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Потенційні "вузькі місця" (Bottlenecks), які ми спільно вирішили
 
-## Learn More
+Під час розробки ми зіткнулися з низкою архітектурних та технічних викликів, які були успішно вирішені нашою командою:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Проблема рендерингу великих списків (DOM Bloat):**
+   - *Проблема:* Виведення тисяч завдань у DOM могло призвести до значного падіння продуктивності браузера.
+   - *Рішення:* Ми впровадили **TanStack Virtual**, що дозволяє віртуалізувати список завдань і рендерити лише ті рядки, які знаходяться у видимій зоні екрана, зберігаючи DOM максимально легким.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Проблеми з макетом та обрізкою тексту у Grid-сітках:**
+   - *Проблема:* У складному CSS Grid-макеті для таблиці `TaskList` довгий текст вилазив за межі колонок, порушуючи адаптивність.
+   - *Рішення:* Ми налаштували правильні обмеження для grid-контейнерів (`min-width: 0`) та використали CSS-властивості `line-clamp` і `text-overflow: ellipsis`, забезпечивши ідеальне усічення довгого тексту.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Обмеження Next.js SSR та витоки пам'яті у Zustand:**
+   - *Проблема:* Глобальні сховища Zustand могли зберігати стан між запитами на сервері, що призводило б до забруднення даних і помилок гідратації.
+   - *Рішення:* Ми реструктурували підхід до управління станом, використовуючи безпечні для SSR патерни (хуки для доступу та інкапсульовані об'єкти actions).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Розв'язання проблеми заблокованого UI під час роботи ШІ:**
+   - *Проблема:* Робота агентів LangGraph (декомпозиція та пріоритезація завдань) є ресурсомісткою та займає багато часу, що могло б заблокувати клієнтський UI або викликати тайм-аути.
+   - *Рішення:* Ми застосували **React Query Service Pattern**, відокремивши виклики ШІ в серверні дії (Server Actions). UI тепер показує плавні стани завантаження, тоді як важка логіка надійно виконується на бекенді.

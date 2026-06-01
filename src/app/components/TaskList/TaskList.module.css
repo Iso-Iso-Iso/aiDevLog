@@ -8,8 +8,9 @@
 
 .controls {
   display: grid;
-  grid-template-columns: 210px 140px;
+  grid-template-columns: 210px 140px auto;
   justify-content: flex-end;
+  align-items: end;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-sm);
 }
@@ -20,6 +21,13 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   background-color: var(--surface-color);
+}
+
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .virtualList {
@@ -35,6 +43,7 @@
   height: 64px;
   display: grid;
   grid-template-columns: 2fr 3fr 1.5fr 1fr 60px;
+  gap: var(--spacing-md);
   align-items: center;
   border-bottom: 1px solid var(--border-color);
   padding: 0 var(--spacing-md);
@@ -42,15 +51,20 @@
 }
 
 .cellTitle {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding-right: var(--spacing-sm);
+  min-width: 0;
 }
 
+
+
 .cellDescription {
-  padding-right: var(--spacing-md);
+  min-width: 0;
 }
 
 .ellipsisText {
