@@ -1,4 +1,116 @@
 {
   "tasks": [
+    {
+      "id": "27665a64-6c8c-4f70-a233-ed4c797e84f4",
+      "createdAt": 1780358441671,
+      "title": "Define product scope, UX flow, and AI interaction model",
+      "description": "[Design] Map the core user journeys for DevLog: task list, task CRUD, filtering/sorting, and the AI-assisted flows. Define the minimal UI structure for a single-user engineering task tracker, including how users invoke the prioritization agent, task decomposition agent, and status update generator. Specify interaction states for loading, empty, error, and confirmation states. Document the tradeoffs of keeping the UI intentionally simple to fit the time budget.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "a16dc520-bb69-4f52-ad56-2c804192438e",
+      "createdAt": 1780358441672,
+      "title": "Design the task list and CRUD interface",
+      "description": "[Design + FE] Create the visual and interaction design for the main task list, task detail/edit form, and delete confirmation. Ensure the UI clearly exposes title, description, status, priority, and createdAt. Include filter controls by status and sort controls by priority/date. Keep the layout lightweight and functional, with clear affordances for creating and editing tasks.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "cabccbea-ede8-48ca-8451-c47e9e227ba5",
+      "createdAt": 1780358441673,
+      "title": "Implement task data model and persistence layer",
+      "description": "[BE] Define the task schema with required fields: title, description, status (todo / in-progress / done), priority (low / medium / high), and createdAt. Implement persistence using a simple local storage approach suitable for the scope, such as SQLite or a JSON file, and expose a clean data access layer for CRUD operations. Include validation, default values, and error handling. Document the storage choice and limitations for README.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "248ece3d-ebba-4e74-ac43-c924608d6d64",
+      "createdAt": 1780358441675,
+      "title": "Build REST API for task CRUD, filtering, and sorting",
+      "description": "[BE] Implement API endpoints for creating, reading, updating, and deleting tasks. Add list retrieval support with server-side filtering by status and sorting by priority or date. Ensure responses are consistent and include validation errors for malformed input. Keep the API simple enough for the frontend to consume directly without extra orchestration.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "53e11761-f8b6-43d4-82f1-985c8600063b",
+      "createdAt": 1780358441676,
+      "title": "Implement task list page and CRUD forms",
+      "description": "[FE] Scaffold the main DevLog interface in Next.js: task list view, create/edit form, delete action, filter controls, and sort controls. Connect the UI to the backend API and handle loading, empty, and error states. Make sure the page supports a fast workflow for engineers to scan and update tasks.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "06018990-b32c-4c17-838f-bfb50729e367",
+      "createdAt": 1780358441677,
+      "title": "Implement AI prioritization agent",
+      "description": "[BE + FE] Build a multi-step agent that analyzes the current task list and recommends what to work on next, with an explanation of the reasoning. The agent must consider priority, task age, and status rather than returning a naive top-ranked item. Include a UI entry point to run the agent and display the recommendation, rationale, and any assumptions. If needed, break the process into multiple internal steps such as task scoring, tie-breaking, and explanation generation.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "34148ea5-e301-43d0-b0ec-82aaa6ba117e",
+      "createdAt": 1780358441679,
+      "title": "Implement AI task decomposition agent",
+      "description": "[BE + FE] Build an agent that takes a task title and description, asks clarifying questions when the input is ambiguous, and generates a structured list of subtasks. Add an option to create the generated subtasks in the app after review. Ensure the flow is genuinely agentic with at least one decision or multi-step refinement stage, not a single prompt call.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "8a32e7a6-f56b-41d5-b9ff-e85bbb3fb57c",
+      "createdAt": 1780358441679,
+      "title": "Implement AI status update generator",
+      "description": "[BE + FE] Build an agent that composes a concise async status update in a Slack-like tone based on a task, its subtasks, and/or completion notes. Support context-sensitive tone and output that is useful for engineering communication. Add a UI surface for generating, reviewing, and copying the update.",
+      "priority": "medium",
+      "status": "selected for development"
+    },
+    {
+      "id": "3a4643e0-877c-4979-8d9b-79f80e3dbcad",
+      "createdAt": 1780358441680,
+      "title": "Implement one custom agent feature for engineering teams",
+      "description": "[Product + BE + FE] Propose and implement one additional agentic feature that is useful for an engineering team and distinct from the required three AI functions. Examples could include blocker detection, daily focus summary, or task risk flagging. Include a short product rationale in the implementation and README explaining why this feature helps the team and what tradeoffs were made.",
+      "priority": "medium",
+      "status": "selected for development"
+    },
+    {
+      "id": "4d8b2d02-7c07-4574-a793-b9d7922f9906",
+      "createdAt": 1780358441681,
+      "title": "Set up Next.js app structure, styling system, and reusable components",
+      "description": "[FE] Create the application shell, routing structure, shared layout, and reusable UI primitives needed for the tracker and AI panels. Use a consistent styling approach and keep the code modular so the agent-generated scaffold can be maintained. Prefer components that are easy to extend and simple to reason about.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "d0c7468d-3b53-4229-a1a3-437054841f57",
+      "createdAt": 1780358441683,
+      "title": "Add environment configuration, AI client abstraction, and mock fallback",
+      "description": "[BE] Create the .env.example file with all required variables for local development and AI provider integration. Implement a small AI client abstraction that can switch between a real LLM API and a mocked fallback for local or keyless usage. Document how the app behaves when AI keys are missing and how to enable real AI calls.",
+      "priority": "medium",
+      "status": "selected for development"
+    },
+    {
+      "id": "43fc72f5-acd9-42ad-a692-e736edb3ac1e",
+      "createdAt": 1780358441683,
+      "title": "Write README with setup, architecture, and storage tradeoffs",
+      "description": "[Docs] Produce a concise README that explains how to install and run the app locally, the chosen architecture, the storage approach and its limitations, and how the AI features work at a high level. Include notes on what was intentionally not built to stay within scope and time constraints.",
+      "priority": "medium",
+      "status": "selected for development"
+    },
+    {
+      "id": "f790aac8-89f5-4fcf-8b72-795dbee44bac",
+      "createdAt": 1780358441684,
+      "title": "Write AGENT_LOG.md documenting coding-agent usage and manual edits",
+      "description": "[Docs] Add a candid AGENT_LOG.md in the repository root describing which coding agents were used, what tasks they were given, where they helped, and where manual intervention or rewrites were necessary. Explicitly note which parts of the UI were scaffolded by the agent and what was changed afterward, with honest commentary on tradeoffs and limitations.",
+      "priority": "medium",
+      "status": "selected for development"
+    },
+    {
+      "id": "666840df-91c6-48ff-a7ed-4a48776f69db",
+      "createdAt": 1780358441685,
+      "title": "Create QA test plan and verify core flows",
+      "description": "[QA] Define and execute a focused test plan covering task CRUD, filtering, sorting, persistence across reloads, AI agent entry points, clarifying-question behavior, and fallback behavior when AI keys are absent. Verify that npm install && npm run dev starts successfully and that the main user flows are stable. Record any bugs, edge cases, and known limitations.",
+      "priority": "high",
+      "status": "selected for development"
+    }
   ]
 }

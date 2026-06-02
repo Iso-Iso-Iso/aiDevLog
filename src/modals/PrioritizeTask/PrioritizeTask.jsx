@@ -10,13 +10,13 @@ import styles from "./PrioritizeTask.module.css";
 export const PrioritizeTask = () => {
   const { resetModal } = useSelectModalStoreActions();
   const { data, isPending, isFetching, isError } = usePrioritizedTasksQuery();
-  
-  const showLoader = isPending || isFetching;
+
+  const isShowLoader = isPending || isFetching;
 
   return (
     <Modal title="AI Daily Prioritization">
       <div className={styles.container}>
-        {showLoader && (
+        {isShowLoader && (
           <div className={styles.loading}>
             <Loader size="md" />
             <Typography variant="paragraph">
@@ -33,7 +33,7 @@ export const PrioritizeTask = () => {
           </div>
         )}
 
-        {data && (
+        {data && !isShowLoader && (
           <div className={styles.content}>
             <div className={styles.section}>
               <Typography variant="title">Daily Plan</Typography>
