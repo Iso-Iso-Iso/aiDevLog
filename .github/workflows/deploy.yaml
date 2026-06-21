@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: ${{ github.actor }}/ai-dev-log:latest
+          tags: ghcr.io/${{ github.actor }}/ai-dev-log:latest
