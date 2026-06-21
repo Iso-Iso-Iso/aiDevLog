@@ -44,3 +44,7 @@ next-env.d.ts
 /.agent/
 
 /prisma/src/generated/prisma
+
+*secret*.yaml
+!*secret*.enc.yaml
+main-master-key.yaml

@@ -105,10 +105,82 @@
       "status": "selected for development"
     },
     {
-      "id": "666840df-91c6-48ff-a7ed-4a48776f69db",
-      "createdAt": 1780358441685,
-      "title": "Create QA test plan and verify core flows",
-      "description": "[QA] Define and execute a focused test plan covering task CRUD, filtering, sorting, persistence across reloads, AI agent entry points, clarifying-question behavior, and fallback behavior when AI keys are absent. Verify that npm install && npm run dev starts successfully and that the main user flows are stable. Record any bugs, edge cases, and known limitations.",
+      "id": "39740912-d952-45b5-8b1b-51c49d4face5",
+      "createdAt": 1780995984956,
+      "title": "Define eCommerce product and category browsing experience",
+      "description": "[Design/FE] Create the core shopping UX for an online eCommerce app, including homepage layout, category navigation, product listing cards, product detail page structure, search entry points, and responsive behavior for mobile/tablet/desktop. Specify visual hierarchy, filtering/sorting placement, image handling, and empty/loading states.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "9b87ab90-11c7-4d57-bf57-9e3698a1c85d",
+      "createdAt": 1780995984958,
+      "title": "Design checkout and cart user flow",
+      "description": "[Design/FE] Map the end-to-end cart and checkout journey: add-to-cart interactions, cart drawer/page, quantity updates, remove item actions, shipping/billing form layout, order summary, coupon entry, and confirmation screen. Include validation states, error messaging, and trust/clarity elements to reduce checkout friction.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "2b47c542-f9c5-4ea1-b007-37aa4cb9b5de",
+      "createdAt": 1780995984959,
+      "title": "Implement product catalog APIs and data models",
+      "description": "[BE] Define backend data models and APIs for products, categories, inventory, pricing, images, variants, and product search/filtering. Include endpoints for listing products, retrieving product details, and supporting pagination, sorting, and filtering. Ensure the schema supports future growth such as discounts, attributes, and stock tracking.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "dd105d7b-9bb6-44b0-b952-3c42514e632f",
+      "createdAt": 1780995984960,
+      "title": "Implement user authentication and account management",
+      "description": "[BE] Build authentication flows for sign up, login, logout, password reset, and basic account profile management. Include secure session/token handling, input validation, password hashing, and protected endpoints for user-specific data such as orders and saved addresses.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "25e3e172-782f-475f-bc36-11fc8e7a5c64",
+      "createdAt": 1780995984961,
+      "title": "Implement shopping cart and checkout backend",
+      "description": "[BE] Create backend services for cart persistence, cart item updates, pricing calculations, tax/shipping estimation hooks, coupon application, and order creation. Ensure checkout logic is transactional, validates inventory before purchase, and records order status/history for post-purchase tracking.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "05582d42-ecd1-46c7-9d7e-299e9a905de7",
+      "createdAt": 1780995984962,
+      "title": "Implement frontend storefront pages and navigation",
+      "description": "[FE] Build the main storefront UI including header, search bar, category navigation, homepage, product listing page, product detail page, and responsive navigation patterns. Connect UI states for loading, empty results, and error handling, and ensure accessibility and mobile responsiveness.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "3869a791-56ef-4aa2-a2af-de2651145497",
+      "createdAt": 1780995984964,
+      "title": "Implement frontend cart and checkout experience",
+      "description": "[FE] Build cart page/drawer, checkout form, order summary, promo code input, shipping and payment sections, and order confirmation view. Wire interactions for quantity changes, item removal, form validation, and submission states. Ensure the flow is optimized for conversion and works well on mobile devices.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "8ca942a5-f307-4ea4-8154-d742e2bf8136",
+      "createdAt": 1780995984965,
+      "title": "Implement frontend authentication screens",
+      "description": "[FE] Create sign up, login, forgot password, and account profile screens with validation, error handling, and secure form behavior. Include user session awareness, protected route handling, and clear CTA placement. Ensure the design is consistent with the storefront and responsive across devices.",
+      "priority": "medium",
+      "status": "selected for development"
+    },
+    {
+      "id": "0dd80b4f-bab5-4056-a585-010c592b3e2e",
+      "createdAt": 1780995984965,
+      "title": "Set up payment and order confirmation integration",
+      "description": "[BE] Integrate a payment provider abstraction and order confirmation workflow. Include payment intent/session creation, payment status handling, webhook processing, and order finalization after successful payment. Add safeguards for failed or pending payments and ensure idempotent order creation.",
+      "priority": "high",
+      "status": "selected for development"
+    },
+    {
+      "id": "3ac9e290-ef9e-4265-a17e-cf86515e5f1e",
+      "createdAt": 1780995984966,
+      "title": "Create QA test plan for core eCommerce flows",
+      "description": "[QA] Develop a test plan and execution checklist covering browsing, search, product detail, add to cart, cart updates, checkout, payment success/failure, authentication, and order confirmation. Include functional, responsive, accessibility, and regression test cases, plus edge cases such as out-of-stock items and invalid promo codes.",
       "priority": "high",
       "status": "selected for development"
     }

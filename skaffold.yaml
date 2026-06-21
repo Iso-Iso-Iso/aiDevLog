@@ -1,0 +1,27 @@
+apiVersion: skaffold/v4beta14
+kind: Config
+metadata:
+  name: ai-dev-log
+build:
+  artifacts:
+    - image: ai-dev-log
+      context: ./
+      sync:
+        infer:
+          - "src/**"
+      docker:
+        dockerfile: Dockerfile
+deploy:
+  helm:
+    releases:
+      - name: app
+        chartPath: infra
+        valuesFiles:
+          - infra/values-local.yaml
+        version: 0.1.0
+
+portForward:
+  - resourceType: deployment
+    resourceName: ai-dev-log
+    port: 3000
+    localPort: 3000

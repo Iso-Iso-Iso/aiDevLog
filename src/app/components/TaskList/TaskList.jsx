@@ -42,7 +42,6 @@ export const TaskList = () => {
     sortBy: sortBy.value,
     sortOrder: sortOrder.value,
   });
-  console.log(sortedTasks);
 
   const parentRef = useRef(null);
 

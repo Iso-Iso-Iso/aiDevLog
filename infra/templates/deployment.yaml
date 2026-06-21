@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Release.Name}}-ai-dev-log
+  namespace: {{.Values.namespace}}
+  labels:
+    name: {{.Release.Name}}-ai-dev-log
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: {{.Release.Name}}-ai-dev-log
+  template:
+    metadata:
+      labels:
+        name: {{.Release.Name}}-ai-dev-log
+    spec:
+      containers:
+        - name: {{.Values.deployment.name}}
+          image: {{ .Values.deployment.image }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: OPENAI_API_KEY
+          ports:
+            - containerPort: {{.Values.deployment.containerPort}}
