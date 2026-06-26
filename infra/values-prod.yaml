@@ -1,8 +1,0 @@
-sealed-secrets:
-  fullnameOverride: "sealed-secrets-controller"
-  namespaceOverride: "kube-system"
-deployment:
-  image: ghcr.io/ivnv/ai-dev-log:latest
-  name: ai-dev-log
-  containerPort: 3000
-namespace: default
