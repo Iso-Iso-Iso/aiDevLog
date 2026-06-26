@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.titleSection}>
-        <Typography variant="heading">Task Log</Typography>
+        <Typography variant="heading">Task Log2</Typography>
         <Typography variant="paragraph">
           Manage your tasks and keep track of your progress.
         </Typography>
